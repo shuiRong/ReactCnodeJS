@@ -1,0 +1,33 @@
+.topic {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+  }
+  span.count {
+    width: 100px;
+    text-align: center;
+    em:first-child {
+      font-size: 1.2em;
+      color: purple;
+    }
+    em:last-child {
+      color: grey;
+    }
+  }
+  .title {
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+  }
+  span.time {
+    width: 70px;
+    text-align: right;
+  }
+}

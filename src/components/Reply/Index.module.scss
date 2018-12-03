@@ -1,0 +1,51 @@
+.reply {
+  width: 100%;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 15px;
+  }
+  > div {
+    display: flex;
+    border: 1px solid #ebedf0;
+    border-bottom-width: 0;
+    color: rgba(0, 0, 0, 0.65);
+    padding: 10px 20px;
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      p {
+        margin: 0;
+        width: 100%;
+      }
+      .info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .thumbs {
+          width: 40px;
+          font-size: 15px;
+          img {
+            width: 12px;
+            height: 15px;
+            margin-right: 5px;
+            transform: rotate(-15deg);
+            position: relative;
+            top: -1px;
+          }
+        }
+      }
+    }
+  }
+  > div:first-child {
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: bold;
+  }
+  > div:last-child {
+    border-bottom: 1px solid #ebedf0;
+  }
+}

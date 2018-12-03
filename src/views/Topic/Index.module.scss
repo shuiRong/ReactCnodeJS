@@ -1,0 +1,38 @@
+$grey-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+.topic {
+  display: flex;
+  margin-bottom: 100px;
+  .title {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 8px;
+  }
+  .content {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    img {
+      width: 100%;
+    }
+  }
+  .left {
+    width: 72%;
+    float: left;
+    box-shadow: $grey-shadow;
+    padding: 20px;
+    .info {
+      display: flex;
+      align-items: center;
+      color: #838383;
+      font-size: 12px;
+    }
+  }
+  .right {
+    float: right;
+    width: 25%;
+    height: 100%;
+    margin-left: 2%;
+  }
+}

@@ -1,0 +1,19 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  header {
+    color: black;
+    font-weight: bold;
+  }
+  a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+.divider {
+  margin: 12px 0;
+}

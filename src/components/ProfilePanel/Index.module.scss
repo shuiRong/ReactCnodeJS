@@ -1,0 +1,20 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  padding: 20px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  > a {
+    display: flex;
+    align-items: center;
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 5px;
+      margin-right: 20px;
+    }
+  }
+  .user {
+    margin-bottom: 10px;
+  }
+}
