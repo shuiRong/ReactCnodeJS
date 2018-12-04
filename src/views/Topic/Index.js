@@ -19,12 +19,25 @@ class Topic extends Component {
       topic: {}
     }
   }
+  /**
+   * 在render钩子执行前：
+   * 调用接口获取数据
+   */
   componentWillMount() {
     this.fetchData(this.props.match.params.id)
   }
+  /**
+   * 在当前路由状态变化后触发的钩子函数
+   * P.S. 这个函数一般用来解决，路由发生了变化，但组件因为没有被销毁所以不会再一次触发‘componentWillMount’钩子，
+   * 这时候就可以在当前钩子下重新获取数据
+   * @param {Object} nextProps props对象
+   */
   componentWillReceiveProps(nextProps) {
     this.fetchData(nextProps.match.params.id)
   }
+  /**
+   * 封装好的获取数据的函数，这样就不需要每次使用都copy一遍代码了
+   */
   fetchData(id) {
     getTopicById(id).then(res => {
       this.setState({
@@ -35,12 +48,18 @@ class Topic extends Component {
       })
     })
   }
+  /**
+   * 将html内容包裹在对象中，key必须是'__html'
+   * 详情见：https://react.docschina.org/docs/dom-elements.html#dangerouslysetinnerhtml%E5%87%BD%E6%95%B0
+   * @param {String} html html字符串
+   */
   getHTML(html) {
     return {
       __html: html
     }
   }
   render() {
+    // 在没有数据时，展示骨架图
     if (!this.state.topic.id) {
       return <Skeleton active />
     }
@@ -60,7 +79,7 @@ class Topic extends Component {
               &nbsp;•&nbsp;
             </span>
             作者：
-            <Link to={'/profile/' + this.state.topic.loginname}>
+            <Link to={'/user/' + this.state.topic.loginname}>
               {this.state.topic.loginname}
             </Link>
             &nbsp;•&nbsp;

@@ -8,10 +8,27 @@
     color: black;
     font-weight: bold;
   }
-  a {
+  > div {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    .time {
+      float: right;
+      color: #777;
+      font-size: 11px;
+    }
+    .inside-divider {
+      margin: 10px 0;
+    }
+    .avatar {
+      margin-left: 10px;
+    }
+  }
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    margin-right: 5px;
   }
 }
 .divider {

@@ -12,24 +12,33 @@ class Profile extends Component {
       loginname: ''
     }
   }
+  /**
+   * 在render钩子执行前：
+   * 1. 调用接口获取数据
+   * 2. 绑定窗口滚动监听函数
+   */
   componentWillMount() {
-    console.log(1, this.props.match.params.id)
     this.setState({
       loginname: this.props.match.params.id
     })
   }
+  /**
+   * 在当前路由状态变化后触发的钩子函数
+   * P.S. 这个函数一般用来解决，路由发生了变化，但组件因为没有被销毁所以不会再一次触发‘componentWillMount’钩子，
+   * 这时候就可以在当前钩子下重新获取数据
+   * @param {Object} nextProps props对象
+   */
   componentWillReceiveProps(nextProps) {
-    console.log(2, nextProps.match.params.id)
     this.setState({
       loginname: nextProps.match.params.id
     })
   }
   render() {
     return (
-      <div className="profile">
+      <div styleName="user">
         <ProfilePanel loginname={this.state.loginname} />
-        <OtherTopic />
-        <RecentReply />
+        <OtherTopic simple={false} />
+        <RecentReply simple={false} />
       </div>
     )
   }

@@ -6,6 +6,9 @@ import Profile from './views/Profile/Index'
 import Topic from './views/Topic/Index'
 import './App.scss'
 
+/**
+ * 路由设置
+ */
 class App extends Component {
   render() {
     return (
@@ -15,9 +18,9 @@ class App extends Component {
           <div className="box">
             <Route exact path="/" component={Home} />
             <Route path="/topic/:id" component={Topic} />
-            <Route path="/profile/:id" component={Profile} />
+            <Route path="/user/:id" component={Profile} />
             <Route exact path="/topic" render={() => <Redirect to="/" />} />
-            <Route exact path="/profile" render={() => <Redirect to="/" />} />
+            <Route exact path="/user" render={() => <Redirect to="/" />} />
           </div>
         </Router>
       </div>

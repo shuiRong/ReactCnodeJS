@@ -5,16 +5,21 @@ import moment from 'moment'
 import style from './Index.module.scss'
 import CSSModules from 'react-css-modules'
 import tab from '@src/utils/tab'
+import { Skeleton } from 'antd'
 
+/**
+ * 首页帖子列表组件
+ */
 class Topics extends Component {
   render() {
-    if (!this.props.list) {
-      return <div />
+    // 在没有数据时，展示骨架图
+    if (this.props.list.length === 0) {
+      return <Skeleton active />
     }
     const items = this.props.list.map(item => {
       return (
         <div styleName="topic" key={item.id}>
-          <Link to={'/profile/' + item.author.loginname}>
+          <Link to={'/user/' + item.author.loginname}>
             <img src={item.author.avatar_url} alt="用户头像" />
           </Link>
           <span styleName="count">
