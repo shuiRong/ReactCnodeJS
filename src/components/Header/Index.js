@@ -52,7 +52,7 @@ class Header extends Component {
           <p>
             作者：
             <a
-              href="https://shuirong.github.io/"
+              href="https://linshuirong.cn/"
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
