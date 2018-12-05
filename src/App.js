@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { HashRouter, Route, Redirect } from 'react-router-dom'
 import Header from './components/Header/Index'
 import Home from './views/Home/Index'
 import Profile from './views/Profile/Index'
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Router>
+        <HashRouter>
           <div className="box">
             <Route exact path="/" component={Home} />
             <Route path="/topic/:id" component={Topic} />
@@ -22,7 +22,7 @@ class App extends Component {
             <Route exact path="/topic" render={() => <Redirect to="/" />} />
             <Route exact path="/user" render={() => <Redirect to="/" />} />
           </div>
-        </Router>
+        </HashRouter>
       </div>
     )
   }
