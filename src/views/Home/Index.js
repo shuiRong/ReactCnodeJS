@@ -75,7 +75,8 @@ class Home extends Component {
     this.setState(
       {
         tab,
-        limit: 20
+        limit: 20,
+        list: []
       },
       () => {
         this.getTopics()
