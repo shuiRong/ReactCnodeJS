@@ -63,7 +63,11 @@ class ProfilePanel extends Component {
         <div>积分：{this.state.user.score}</div>
         <div>
           Github：
-          <a href={this.state.user.githubUsername} target="_blanket">
+          <a
+            href={'https://github.com/' + this.state.user.githubUsername}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
             {this.state.user.githubUsername}
           </a>
         </div>

@@ -48,7 +48,7 @@ class Header extends Component {
           onOk={this.handleOk}
           onCancel={this.handleOk}
         >
-          {/* P.S. 当使用_blanket时有一个容易忽略的安全漏洞，需要注意：https://developers.google.com/web/tools/lighthouse/audits/noopener?hl=zh-cn */}
+          {/* P.S. 当使用_blank时有一个容易忽略的安全漏洞，需要注意：https://developers.google.com/web/tools/lighthouse/audits/noopener?hl=zh-cn */}
           <p>
             作者：
             <a
