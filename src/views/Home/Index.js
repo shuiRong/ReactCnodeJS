@@ -21,11 +21,11 @@ class Home extends Component {
     }
   }
   /**
-   * 在render钩子执行前：
    * 1. 调用接口获取数据
    * 2. 绑定窗口滚动监听函数
+   * P.S. 一般在此钩子下面调用接口或者类似操作
    */
-  componentWillMount() {
+  componentDidMount() {
     this.getTopics()
     window.addEventListener('scroll', this.scrollMethod)
   }

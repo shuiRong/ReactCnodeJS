@@ -23,10 +23,10 @@ class OtherTopic extends Component {
     }
   }
   /**
-   * 在render钩子执行前：
    * 监听'user'，将被传入的数据设置到当前组件state中
+   * P.S. 一般在此钩子下面调用接口或者类似操作
    */
-  componentWillMount() {
+  componentDidMount() {
     // 增加属性，表示当前实例未被卸载
     this.isUnmounted = false
     eventProxy.on('user', data => {

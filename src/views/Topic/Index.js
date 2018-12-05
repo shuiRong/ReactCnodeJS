@@ -20,15 +20,15 @@ class Topic extends Component {
     }
   }
   /**
-   * 在render钩子执行前：
    * 调用接口获取数据
+   * P.S. 一般在此钩子下面调用接口或者类似操作
    */
-  componentWillMount() {
+  componentDidMount() {
     this.fetchData(this.props.match.params.id)
   }
   /**
    * 在当前路由状态变化后触发的钩子函数
-   * P.S. 这个函数一般用来解决，路由发生了变化，但组件因为没有被销毁所以不会再一次触发‘componentWillMount’钩子，
+   * P.S. 这个函数一般用来解决，路由发生了变化，但组件因为没有被销毁所以不会再一次触发‘componentDidMount’钩子，
    * 这时候就可以在当前钩子下重新获取数据
    * @param {Object} nextProps props对象
    */
