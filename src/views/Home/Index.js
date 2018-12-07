@@ -17,7 +17,8 @@ class Home extends Component {
       page: 1,
       limit: 20,
       list: [],
-      tab: '' // 当前Tab，声明在全局变量里是为了滚动时相关函数也可以获取的到
+      store: {}, // 存储所有Tab对应的数据，因为切换Tab后就没必要重新以limit:20加载数据。
+      tab: 'all' // 当前Tab，声明在全局变量里是为了滚动时相关函数也可以获取的到
     }
   }
   /**
@@ -39,15 +40,23 @@ class Home extends Component {
    * 封装好的获取首页数据的函数，这样就不需要每次使用都copy一遍代码了
    */
   getTopics() {
+    const state = this.state
     getTopics({
-      page: this.state.page,
-      limit: this.state.limit,
-      tab: this.state.tab
+      page: state.page,
+      limit: state.limit,
+      tab: state.tab
     }).then(res => {
+      const store = state.store
+
       this.setState({
         list: res.data,
         limit: this.state.limit + 10
       })
+      // 将数据存储到对应的key下
+      store[state.tab] = {
+        limit: state.limit,
+        data: res.data
+      }
     })
   }
   /**
@@ -64,24 +73,35 @@ class Home extends Component {
     }
   }
   /**
-   * 当前Tab变化时的回调函数
-   * 每次切换Tab时，重置limit参数
+   * 当前Tab变化时判断Store里是否已经存储数据。
+   * 是：拉出来，设置到state中
+   * 否：重新获取数据
    * 这里使用箭头函数而不是上面的那种方式，是为了解决this问题
    * 详情看：https://react.docschina.org/docs/react-without-es6.html#%E8%87%AA%E5%8A%A8%E7%BB%91%E5%AE%9A
    * （或者自行Google）
    */
   tabChanged = tab => {
-    // 传递第二个参数：回调函数，表示在状态已经被设置成功后，调用获取数据接口
-    this.setState(
-      {
-        tab,
-        limit: 20,
-        list: []
-      },
-      () => {
-        this.getTopics()
-      }
-    )
+    // 如果未存储当前Tab的数据，重新获取
+    const store = this.state.store
+    if (!store[tab]) {
+      this.setState(
+        {
+          tab,
+          limit: 20,
+          list: []
+        },
+        () => {
+          this.getTopics()
+        }
+      )
+      return
+    }
+
+    this.setState({
+      tab,
+      limit: store[tab].limit,
+      list: store[tab].data
+    })
   }
   render() {
     return (
@@ -89,7 +109,7 @@ class Home extends Component {
         <Spin spinning={false}>
           <div>
             <Tabs defaultActiveKey="" onChange={this.tabChanged}>
-              <TabPane tab="全部" key="">
+              <TabPane tab="全部" key="all">
                 <Topics list={this.state.list} />
               </TabPane>
               <TabPane tab="精华" key="good">
