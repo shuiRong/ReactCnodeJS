@@ -81,8 +81,9 @@ class Home extends Component {
    * （或者自行Google）
    */
   tabChanged = tab => {
-    // 如果未存储当前Tab的数据，重新获取
     const store = this.state.store
+
+    // 如果未存储当前Tab的数据，重新获取
     if (!store[tab]) {
       this.setState(
         {
