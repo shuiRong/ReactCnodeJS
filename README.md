@@ -14,8 +14,10 @@
 
 在此期间根据需要，看了 React-Router 文档，了解了 Redux 的实现原理（但本项目并没有用 Redux）（歪个楼：“我相信任何复杂技术背后的原理都是简单易懂的”）
 
-**P.S.** 如果你想入门 React,但苦于没有难度合适的项目的话，**It's For You!**
+**P.S.：** 如果你想入门 React,但苦于没有难度合适的项目的话，**It's For You!**
 （考虑到别人可能会看我源码来学习，我补充了 **“非常详细的注释”** ）
+
+**P.P.S.：**项目起源于[Vue.js版 CnodeJS](https://github.com/shuiRong/VueCnodeJS)，希望帮助到正在/将要学习Vue的同学。
 
 ---
 
