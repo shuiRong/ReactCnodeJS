@@ -17,7 +17,7 @@
 **P.S.：** 如果你想入门 React,但苦于没有难度合适的项目的话，**It's For You!**
 （考虑到别人可能会看我源码来学习，我补充了 **“非常详细的注释”** ）
 
-**P.P.S.：**项目起源于[Vue.js版 CnodeJS](https://github.com/shuiRong/VueCnodeJS)，希望帮助到正在/将要学习Vue的同学。
+**P.P.S.：** 项目起源于[Vue.js版CnodeJS](https://github.com/shuiRong/VueCnodeJS)，希望帮助到正在/将要学习Vue的同学。
 
 ---
 
